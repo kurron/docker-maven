@@ -2,17 +2,17 @@ FROM kurron/docker-jetbrains-base:latest
 
 MAINTAINER Ron Kurr <kurr@kurron.org>
 
-LABEL org.kurron.ide.name="Apache Ant" org.kurron.ide.version=1.9.6
+LABEL org.kurron.ide.name="Apache Maven" org.kurron.ide.version=3.3.3
 
-ADD http://mirrors.ibiblio.org/apache/ant/binaries/apache-ant-1.9.6-bin.tar.gz /tmp/ide.tar.gz
+ADD http://mirrors.ibiblio.org/apache/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz /tmp/ide.tar.gz
 
-RUN mkdir -p /opt/ant && \
-    tar zxvf /tmp/ide.tar.gz --strip-components=1 -C /opt/ant && \
+RUN mkdir -p /opt/maven && \
+    tar zxvf /tmp/ide.tar.gz --strip-components=1 -C /opt/maven && \
     rm /tmp/ide.tar.gz
 
-ENV ANT_HOME=/opt/ant
+ENV M2_HOME=/opt/maven
 
 USER developer:developer
 WORKDIR /home/developer
-ENTRYPOINT ["/opt/ant/bin/ant"]
-CMD ["-version"]
+ENTRYPOINT ["/opt/maven/bin/mvn"]
+CMD ["--version"]

@@ -1,9 +1,9 @@
-ant:
+maven:
     build: .
     labels:
-        org.kurron.description: "Apache Ant"
-        org.kurron.version: "1.9.6"
-    container_name: "ant"
+        org.kurron.description: "Apache Maven"
+        org.kurron.version: "3.3.3"
+    container_name: "maven"
     net: "host"
     volumes:
         - /home/vagrant:/home/developer
