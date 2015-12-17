@@ -2,11 +2,11 @@
 
 CMD="docker run \
        --rm \
-       --name ant \
+       --name maven \
        --net "host" \
        --user 1000:1000 \
        --volume $HOME:/home/developer \
-       kurron/docker-ant:latest"
+       kurron/docker-maven:latest"
 
 #echo $CMD
 eval $CMD $*
