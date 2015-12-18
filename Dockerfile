@@ -12,7 +12,9 @@ RUN mkdir -p /opt/maven && \
 
 ENV M2_HOME=/opt/maven
 
+VOLUME ["/pwd"]
+
 USER developer:developer
-WORKDIR /home/developer
+WORKDIR /pwd
 ENTRYPOINT ["/opt/maven/bin/mvn"]
 CMD ["--version"]
